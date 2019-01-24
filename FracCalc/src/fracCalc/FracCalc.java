@@ -1,11 +1,19 @@
 package fracCalc;
+import  java.util.*;
 
 public class FracCalc {
 
     public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
-
+    	Scanner userInput = new Scanner(System.in);
+    	System.out.println("Input fractions.");
+    	String input = userInput.nextLine();
+    	while(input.equals("quit") != true) {
+    		System.out.println(produceAnswer(input));
+    		System.out.println("Input fractions");
+    		input = userInput.nextLine();
+    	}
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
