@@ -1,5 +1,7 @@
+//@auuthor Arthur Foy
+//11/19/2018
 package fracCalc;
-import  java.util.*;
+import java.util.*;
 
 public class FracCalc {
 
@@ -14,8 +16,9 @@ public class FracCalc {
     		System.out.println("Input fractions");
     		input = userInput.nextLine();
     	}
-    }
-    
+    	
+
+   	}
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
     // This function takes a String 'input' and produces the result
     //
@@ -27,8 +30,18 @@ public class FracCalc {
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
+        String[] fractionDecomposed = new String[3];
+        fractionDecomposed = input.split(" ");
+        String firstOperand = fractionDecomposed[0];
+        String operator = fractionDecomposed[1];
+        String secondOperand = fractionDecomposed[2];
+        Fraction operandOne = new Fraction(firstOperand);
+        Fraction operandTwo = new Fraction(secondOperand);
         
-        return "";
+        Fraction answer = operandOne.doMath(operator, operandTwo);
+        answer.toMixedNum();
+        
+        return (answer.toString());
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
