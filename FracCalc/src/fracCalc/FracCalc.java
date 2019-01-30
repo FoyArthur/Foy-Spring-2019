@@ -35,12 +35,12 @@ public class FracCalc {
         String firstOperand = fractionDecomposed[0];
         String operator = fractionDecomposed[1];
         String secondOperand = fractionDecomposed[2];
+        
         Fraction operandOne = new Fraction(firstOperand);
         Fraction operandTwo = new Fraction(secondOperand);
         
         Fraction answer = operandOne.doMath(operator, operandTwo);
         answer.toMixedNum();
-        
         return (answer.toString());
     }
 
