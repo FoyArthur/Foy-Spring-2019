@@ -3,8 +3,9 @@ import java.util.*;
 
 public class Fraction {
 	int numerator;
-	int whole;
+	int whole; 
 	int denominator;
+	
 	
 	//constructor for when a String  is passed in
 	public Fraction(String operand) {
@@ -26,7 +27,7 @@ public class Fraction {
 			toImproperFrac();
 	}
 	
-	//constructor when no string is passed in
+	//constructor when no string is passed into
 	public Fraction() {
 		numerator = 0;
 		denominator = 1;
