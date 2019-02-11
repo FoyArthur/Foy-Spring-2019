@@ -1,3 +1,6 @@
+//@author Arthur Foy
+//2-11-2019
+//Client code for traveler class
 import java.util.ArrayList;
 
 public class ThereAndBackAgain 
