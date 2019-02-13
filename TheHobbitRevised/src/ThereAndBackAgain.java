@@ -1,6 +1,7 @@
 //@author Arthur Foy
 //2-11-2019
 //Client code for traveler class
+
 import java.util.ArrayList;
 
 public class ThereAndBackAgain 
@@ -27,14 +28,55 @@ public class ThereAndBackAgain
 		//                   Sam has traveled 50 miles.
 		//                   Gimli has traveled 50 miles.
 		
-		
-		
-		
-		
-		
 		System.out.println();
+		
+		
+		
+		//PART 2
+		
+		// Make a new ArrayList to hold a 2nd party of Travelers called party2: 
+				// Make a new Hobbit called "Bilbo" and add him to party2
 
+				// <Make a new Wizard called "Gandalf" and add him to party2.
+
+
+				//write createParty
+				// Call the createParty method and pass it party2 and the dwarfNames array.
+
+				// create party should add all the new dwarves to party2,
+
+				//Write allTravel
+				// Finally, call the allTravel method passing it party2 and 100 (representing
+				// the 100 miles that party2 has traveled together.
+
+				//Make sure your code prints out the name and distances party2 has traveled.
+		
+		System.out.println("\n\n\nPART 2: \n");
+		String[] dwarfNames = {"Fili", "Kili", "Dori", "Ori", "Nori", "Balin", "Dwalin", 
+		"Oin", "Gloin", "Bifur", "Bofur", "Bombur", "Thorin"};
+		ArrayList <Traveler> party2 = new ArrayList <Traveler>();
+		Hobbit bilbo = new Hobbit("Bilbo");
+		party2.add(bilbo);
+		Wizard gandalf = new Wizard("Gandalf", "grey");
+		party2.add(gandalf);
+		createParty(party2, dwarfNames);
+		allTravel(party2, 100);
+		for(Traveler name: party2) {
+			System.out.println(name.getName() + " has traveled " + name.getDistanceTraveled() + " hours!");
+		}
 	}
-
+	
+	public static void createParty(ArrayList<Traveler> list, String[] array) {
+		for(String name: array) {
+			Dwarf dwarf = new Dwarf(name);
+			list.add(dwarf);
+		}
+	}							
+	
+	public static void allTravel(ArrayList<Traveler> list, int miles) {
+		for(Traveler traveler: list) {
+			traveler.travel(miles);
+		}
+	}			
 	
 }
