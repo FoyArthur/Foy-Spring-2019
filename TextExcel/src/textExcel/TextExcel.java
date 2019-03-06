@@ -18,9 +18,12 @@ public class TextExcel
     	System.out.println("Input commands.");
     	String input = userInput.nextLine();
     	while(input.equals("quit") != true) {
-    		System.out.println(Spreadsheet.processCommand(input));
-    		System.out.println("Input commands");
+    		Spreadsheet inputSheet = new Spreadsheet();
+    		System.out.println(inputSheet.processCommand(input));
+    		System.out.println(inputSheet.getRows() + " " + inputSheet.getCols());
+    		System.out.println("Input commands.");
     		input = userInput.nextLine();
-    	}	
+    	}
+    	System.err.println("Spreadsheet ended!!!");
 	}
 }
