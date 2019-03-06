@@ -1,4 +1,4 @@
-
+//superclass
 public class Traveler 
 {
 	//fields

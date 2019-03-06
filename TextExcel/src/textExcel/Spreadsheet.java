@@ -1,13 +1,12 @@
+//@author Arthur Foy
+
 package textExcel;
 
 // Update this file with your own code.
 
-public class Spreadsheet implements Grid{
-	
-	//constructor
-	public Spreadsheet() {
-		//initializes
-	}
+public class Spreadsheet implements Grid
+{
+
 	@Override
 	public String processCommand(String command)
 	{

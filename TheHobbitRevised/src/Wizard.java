@@ -1,4 +1,4 @@
-
+//subclass of Traveler
 public class Wizard extends Traveler
 {
 	//Call Traveler's constructor (look it up p587) to set the name field and then 
@@ -14,16 +14,17 @@ public class Wizard extends Traveler
 	
 	public Wizard(String name, String color)
 	{
-	
+		super(name);
+		this.color = color;
 	}
 	
 	public void travel(int miles)
 	{
-		
+		super.travel(3 * miles);
 	}
 	
 	public String getName()
 	{
-		
+		return (super.getName() + " the " + color);
 	}
 }
