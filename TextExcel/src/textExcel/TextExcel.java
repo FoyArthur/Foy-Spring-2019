@@ -20,7 +20,8 @@ public class TextExcel
     	while(input.equals("quit") != true) {
     		Spreadsheet inputSheet = new Spreadsheet();
     		System.out.println(inputSheet.processCommand(input));
-    		System.out.println(inputSheet.getRows() + " " + inputSheet.getCols());
+    		SpreadsheetLocation loc = new SpreadsheetLocation(input);
+    		System.out.println(loc.getRow() + " " + loc.getCol());
     		System.out.println("Input commands.");
     		input = userInput.nextLine();
     	}

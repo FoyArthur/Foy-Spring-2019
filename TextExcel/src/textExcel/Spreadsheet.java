@@ -6,30 +6,26 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
-	private int numRows;
-	private int numCols;
 
 	@Override
 	public String processCommand(String command)
 	{
 		// TODO Auto-generated method stub
-		command.toUpperCase();
-		numCols = command.charAt(0) - 65;
-		numRows = Integer.parseInt(command.substring(1, command.length()));
+		
 		return " ";
 	}
 
 	@Override
 	public int getRows()
 	{
-		return numRows;
+		return 20;
 	}
 
 	@Override
 	public int getCols()
 	{
 		// TODO Auto-generated method stub
-		return numCols;
+		return 12;
 	}
 
 	@Override

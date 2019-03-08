@@ -8,9 +8,16 @@ package textExcel;
 public class SpreadsheetLocation implements Location
 {
 
-	private char col;
+	private int col;
 	private int row;
 	
+	
+	public SpreadsheetLocation(String cellName){
+	        // TODO: Fill this out with your own code
+		String newCell = cellName.toUpperCase();
+		col = newCell.charAt(0) - 65;
+		row = Integer.parseInt(newCell.substring(1, newCell.length())) - 1;
+	}
     @Override
     public int getRow()
     {
@@ -25,12 +32,5 @@ public class SpreadsheetLocation implements Location
         return col;
     }
     
-    public SpreadsheetLocation(String cellName)
-    {
-        // TODO: Fill this out with your own code
-    	cellName.toUpperCase();
-		col = cellName.charAt(0);
-		row = cellName.charAt(1);
-    }
 
 }
