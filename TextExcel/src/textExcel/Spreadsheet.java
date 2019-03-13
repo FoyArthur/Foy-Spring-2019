@@ -6,39 +6,46 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
-
+	private int rows;
+	private int cols;
+	private Cell[][] sheet;
+	public Spreadsheet() {
+		sheet = new EmptyCell[20][12];
+		rows = 20;
+		cols = 12;
+	}
 	@Override
 	public String processCommand(String command)
 	{
-		// TODO Auto-generated method stub
-		
-		return " ";
+		// TODO Auto-generated method stub	
+		return "";
 	}
 
 	@Override
 	public int getRows()
 	{
-		return 20;
+		return rows;
 	}
 
 	@Override
 	public int getCols()
 	{
 		// TODO Auto-generated method stub
-		return 12;
+		return cols;
 	}
 
 	@Override
 	public Cell getCell(Location loc)
 	{
 		// TODO Auto-generated method stub
-		return null;
+		return sheet[loc.getCol()][loc.getRow()];
 	}
 
 	@Override
 	public String getGridText()
 	{
-		// TODO Auto-generated method stub
+						
+		// TOD\O Auto-generated method stub
 		return null;
 	}
 
