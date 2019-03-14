@@ -24,6 +24,9 @@ public class TextExcel
     		SpreadsheetLocation loc = new SpreadsheetLocation(input);
  
     		System.out.println(loc.getRow() + " " + loc.getCol());
+    		inputSheet.getGridText();
+    		TestsALL.Helper th = new TestsALL.Helper();
+    		System.out.println(th.getText());
     		System.out.println("Input commands.");
     		input = userInput.nextLine();
     	}

@@ -41,10 +41,26 @@ public class Spreadsheet implements Grid
 		return sheet[loc.getCol()][loc.getRow()];
 	}
 
-	@Override
+	@Override                                                                       
 	public String getGridText()
-	{
-						
+	{	
+		char letter = 65;
+		int number = 1;
+		System.out.print("   |");
+		for(int i = 0; i < 12; i++) {
+			System.out.print(letter + "         |" );
+			letter += 1;
+		}
+		for(int k = 1; k < 21; k++) {
+			if(k < 10) {
+				System.out.print("\n" + k + "  |");
+			}else {
+				System.out.print("\n" + k + " |");
+			}
+			for(int j = 0; j < 12; j++) {
+				System.out.print("          |");
+			}
+		}
 		// TOD\O Auto-generated method stub
 		return null;
 	}
