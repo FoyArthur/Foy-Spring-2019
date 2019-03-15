@@ -46,23 +46,27 @@ public class Spreadsheet implements Grid
 	{	
 		char letter = 65;
 		int number = 1;
-		System.out.print("   |");
-		for(int i = 0; i < 12; i++) {
-			System.out.print(letter + "         |" );
+		String toReturn = "";
+		toReturn += ("   |");
+		for(int i = 0; i < getCols(); i++) {
+			toReturn += letter + "         |";
 			letter += 1;
 		}
-		for(int k = 1; k < 21; k++) {
-			if(k < 10) {
-				System.out.print("\n" + k + "  |");
+		for(int k = 0; k < getRows(); k++) {
+			if(k < 9) {
+				toReturn += "\n" + (k + 1) + "  |";
 			}else {
-				System.out.print("\n" + k + " |");
+				toReturn += "\n" + (k + 1) + " |";
 			}
-			for(int j = 0; j < 12; j++) {
-				System.out.print("          |");
+			for(int j = 0; j < getCols(); j++) {
+				if(j == 0 && k == 0) {
+					toReturn += "hello     |";
+				}
+				toReturn += "          |";
 			}
 		}
 		// TOD\O Auto-generated method stub
-		return null;
+		return toReturn;
 	}
 
 }
