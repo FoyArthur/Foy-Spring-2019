@@ -17,8 +17,8 @@ public class TextExcel
 		Scanner userInput = new Scanner(System.in);
     	System.out.println("Input commands.");
     	String input = userInput.nextLine();
+    	Spreadsheet inputSheet = new Spreadsheet();
     	while(input.equals("quit") != true) {
-    		Spreadsheet inputSheet = new Spreadsheet();
     		System.out.println(inputSheet.processCommand(input));
     		System.out.println(inputSheet.getGridText());
 

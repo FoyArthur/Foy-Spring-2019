@@ -29,11 +29,14 @@ public class Spreadsheet implements Grid
 		int numRow = 0;
 		if(command.indexOf(" ") != -1){
 			String[] arr = command.split(" = ", 2);
-			cells = new TextCell(command);
 			SpreadsheetLocation userInput = new SpreadsheetLocation(arr[0]);
-			sheet[userInput.getCol()][userInput.getRow()] = cells;
-			
+			TextCell cell = new TextCell(arr[1]);
+			sheet[userInput.getRow()][userInput.getCol()] = cell;
+		}else if(command.length() == 2) {
+			SpreadsheetLocation com = new SpreadsheetLocation(command);
+			return(sheet[com.getRow()][com.getCol()] + "");
 		}
+		
 		// TODO Auto-generated method stub	
 		return "";
 	}
@@ -76,7 +79,7 @@ public class Spreadsheet implements Grid
 				toReturn += "\n" + (k + 1) + " |";
 			}
 			for(int j = 0; j < getCols(); j++) {
-				toReturn += sheet[j][k] + "|";
+				toReturn += sheet[k][j].abbreviatedCellText() + "|";
 			}
 		}
 		// TOD\O Auto-generated method stub

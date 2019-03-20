@@ -11,10 +11,7 @@ public class TextCell implements Cell {
 	}
 	
 	public String abbreviatedCellText() {
-		if(input.length() > 10) {
-			return(input.substring(0, 10));
-		}else {
-			return (input);
-		}
+		input += "          ";
+		return(input.substring(0, 10));
 	}
 }
