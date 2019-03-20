@@ -8,15 +8,32 @@ public class Spreadsheet implements Grid
 {
 	private int rows;
 	private int cols;
+	TextCell cells;
 	private Cell[][] sheet;
+	
 	public Spreadsheet() {
-		sheet = new EmptyCell[20][12];
 		rows = 20;
 		cols = 12;
+		sheet = new Cell[rows][cols];
+		for(int i = 0; i < rows; i++) {
+			for(int j = 0; j < cols; j++) {
+				sheet[i][j] = new EmptyCell();
+			}
+		}
 	}
 	@Override
 	public String processCommand(String command)
 	{
+	
+		int numCol = 0;
+		int numRow = 0;
+		if(command.indexOf(" ") != -1){
+			String[] arr = command.split(" = ", 2);
+			cells = new TextCell(command);
+			SpreadsheetLocation userInput = new SpreadsheetLocation(arr[0]);
+			sheet[userInput.getCol()][userInput.getRow()] = cells;
+			
+		}
 		// TODO Auto-generated method stub	
 		return "";
 	}
@@ -59,10 +76,7 @@ public class Spreadsheet implements Grid
 				toReturn += "\n" + (k + 1) + " |";
 			}
 			for(int j = 0; j < getCols(); j++) {
-				if(j == 0 && k == 0) {
-					toReturn += "hello     |";
-				}
-				toReturn += "          |";
+				toReturn += sheet[j][k] + "|";
 			}
 		}
 		// TOD\O Auto-generated method stub

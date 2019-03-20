@@ -19,14 +19,9 @@ public class TextExcel
     	String input = userInput.nextLine();
     	while(input.equals("quit") != true) {
     		Spreadsheet inputSheet = new Spreadsheet();
-    		//System.out.println(inputSheet.processCommand(input));
-    		
-    		//SpreadsheetLocation loc = new SpreadsheetLocation(input);
- 
-    		//System.out.println(loc.getRow() + " " + loc.getCol());
+    		System.out.println(inputSheet.processCommand(input));
     		System.out.println(inputSheet.getGridText());
-    		TestsALL.Helper th = new TestsALL.Helper();
-    		System.out.println(th.getText());
+
     		System.out.println("Input commands.");
     		input = userInput.nextLine();
     	}
