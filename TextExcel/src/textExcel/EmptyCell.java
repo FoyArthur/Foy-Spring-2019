@@ -8,6 +8,6 @@ public class EmptyCell implements Cell{
 		return "          ";
 	}
 	public String fullCellText() {
-		return " ";
+		return "";
 	}// text for individual cell inspection, not truncated or padded
 }

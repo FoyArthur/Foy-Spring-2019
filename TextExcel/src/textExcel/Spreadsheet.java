@@ -31,6 +31,7 @@ public class Spreadsheet implements Grid
 			String[] arr = command.split(" = ", 2);
 			SpreadsheetLocation userInput = new SpreadsheetLocation(arr[0]);
 			TextCell cell = new TextCell(arr[1]);
+			System.out.println(arr[1]);
 			sheet[userInput.getRow()][userInput.getCol()] = cell;
 		}else if(command.length() == 2) {
 			SpreadsheetLocation com = new SpreadsheetLocation(command);
