@@ -20,8 +20,6 @@ public class TextExcel
     	Spreadsheet inputSheet = new Spreadsheet();
     	while(input.equals("quit") != true) {
     		System.out.println(inputSheet.processCommand(input));
-    		System.out.println(inputSheet.getGridText());
-
     		System.out.println("Input commands.");
     		input = userInput.nextLine();
     	}

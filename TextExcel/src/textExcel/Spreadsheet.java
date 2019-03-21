@@ -27,19 +27,31 @@ public class Spreadsheet implements Grid
 	
 		int numCol = 0;
 		int numRow = 0;
-		if(command.indexOf(" ") != -1){
+		if(command.indexOf(" = ") != -1){
 			String[] arr = command.split(" = ", 2);
 			SpreadsheetLocation userInput = new SpreadsheetLocation(arr[0]);
-			TextCell cell = new TextCell(arr[1]);
-			System.out.println(arr[1]);
+			TextCell cell;
+			if(arr[1].indexOf("\"") != -1) {
+				cell = new TextCell(arr[1].substring(1, arr[1].length() - 1));
+			}else {
+				cell = new TextCell(arr[1]);
+			}
 			sheet[userInput.getRow()][userInput.getCol()] = cell;
-		}else if(command.length() == 2) {
-			SpreadsheetLocation com = new SpreadsheetLocation(command);
-			return(sheet[com.getRow()][com.getCol()] + "");
+			return getGridText();
 		}
-		
-		// TODO Auto-generated method stub	
-		return "";
+		else if(command.length() <=3) {
+			SpreadsheetLocation loc = new SpreadsheetLocation(command);
+			return(getCell(loc).fullCellText());
+		}else if(command.indexOf("clear ") != -1) {
+			String[] arr = command.split(" ", 2);
+			EmptyCell cel = new EmptyCell();
+			SpreadsheetLocation ara = new SpreadsheetLocation(arr[0]);
+			sheet[ara.getRow()][ara.getCol()] = cel;
+			return getGridText();
+		}else {
+			return getGridText();
+		}
+			// TODO Auto-generated method stub	
 	}
 
 	@Override
@@ -59,7 +71,7 @@ public class Spreadsheet implements Grid
 	public Cell getCell(Location loc)
 	{
 		// TODO Auto-generated method stub
-		return sheet[loc.getCol()][loc.getRow()];
+		return sheet[loc.getRow()][loc.getCol()];
 	}
 
 	@Override                                                                       
@@ -82,7 +94,9 @@ public class Spreadsheet implements Grid
 			for(int j = 0; j < getCols(); j++) {
 				toReturn += sheet[k][j].abbreviatedCellText() + "|";
 			}
+			
 		}
+		toReturn += "\n";
 		// TOD\O Auto-generated method stub
 		return toReturn;
 	}
