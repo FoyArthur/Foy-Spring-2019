@@ -11,8 +11,7 @@ import java.util.Scanner;
 public class TextExcel
 {
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args){
 	    // Add your command loop here
 		Scanner userInput = new Scanner(System.in);
     	System.out.println("Input commands.");
