@@ -24,7 +24,7 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-	
+		EmptyCell cello;
 		int numCol = 0;
 		int numRow = 0;
 		if(command.indexOf(" = ") != -1){
@@ -42,11 +42,19 @@ public class Spreadsheet implements Grid
 		else if(command.length() <=3) {
 			SpreadsheetLocation loc = new SpreadsheetLocation(command);
 			return(getCell(loc).fullCellText());
-		}else if(command.indexOf("clear ") != -1) {
+		}else if(command.toUpperCase().equals("CLEAR")) {
+			for(int i = 0; i < getRows(); i++) {
+				for(int j = 0; j < getCols(); j++) {
+					cello = new EmptyCell();
+					sheet[i][j] = cello;
+				}
+			}
+			return getGridText();
+		}else if(command.toUpperCase().indexOf("CLEAR ") != -1) {
 			String[] arr = command.split(" ", 2);
-			EmptyCell cel = new EmptyCell();
-			SpreadsheetLocation ara = new SpreadsheetLocation(arr[0]);
-			sheet[ara.getRow()][ara.getCol()] = cel;
+			cello = new EmptyCell();
+			SpreadsheetLocation ara = new SpreadsheetLocation(arr[1]);
+			sheet[ara.getRow()][ara.getCol()] = cello;
 			return getGridText();
 		}else {
 			return getGridText();
