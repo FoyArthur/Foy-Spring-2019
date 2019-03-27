@@ -30,11 +30,13 @@ public class Spreadsheet implements Grid
 		if(command.indexOf(" = ") != -1){
 			String[] arr = command.split(" = ", 2);
 			SpreadsheetLocation userInput = new SpreadsheetLocation(arr[0]);
-			TextCell cell;
+			Cell cell;
 			if(arr[1].indexOf("\"") != -1) {
 				cell = new TextCell(arr[1].substring(1, arr[1].length() - 1));
+			}else if(arr[1].indexOf("%") != -1) {
+				cell = new PercentCell(arr[1]);
 			}else {
-				cell = new TextCell(arr[1]);
+				cell = new ValueCell(arr[1]);
 			}
 			sheet[userInput.getRow()][userInput.getCol()] = cell;
 			return getGridText();

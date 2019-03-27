@@ -1123,8 +1123,7 @@ public class TestsALL
 
             // Next row's formulas that combine the columns
             for (int col = 0; col < 12; col++)
-            {
-                Cell cell = grid.getCell(new TestLocation(18, col));
+            {                Cell cell = grid.getCell(new TestLocation(18, col));
                 assertEquals("formula cell inspection after reload", "" + getReferenceFormulaString(col), cell.fullCellText());
             }
 
