@@ -3,7 +3,6 @@ package textExcel;
 public class PercentCell extends RealCell {
 	String[] arr;
 	private String userInput;
-	private int douglas;
 	public PercentCell(String input) {
 		super(input);
 		userInput = input;
@@ -14,15 +13,11 @@ public class PercentCell extends RealCell {
 	}
 
 	public String abbreviatedCellText() {
-		if(userInput.indexOf(".") != -1) {
-			douglas = (int) getDoubleValue();
-			return((douglas + "          ").substring(0,10)); 
-		}else {
-			return(super.abbreviatedCellText());
-		}
+		int douglas = (int) getDoubleValue();
+		return((douglas + "%          ").substring(0,10)); 
 	}
 		
 	public double getDoubleValue() {
-		returnsuper.getDoubleValue();
+		return Double.parseDouble(userInput.substring(0, userInput.length() - 1));
 	}
 }
