@@ -1,4 +1,5 @@
 //@author Arthur Foy
+//@date 3/29/2019
 
 package textExcel;
 
@@ -6,8 +7,7 @@ package textExcel;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-// Update this file with your own code.
-
+// CLIENT CODE
 public class TextExcel
 {
 
@@ -21,7 +21,8 @@ public class TextExcel
     		System.out.println(inputSheet.processCommand(input));
     		System.out.println("Input commands.");
     		input = userInput.nextLine();
+    		
     	}
-    	System.err.println("Spreadsheet ended!!!");
+    	System.out.println("Spreadsheet ended!!!");
 	}
 }

@@ -1,9 +1,8 @@
 //@author Arthur Foy
-//3/6/2019
+//@date 3/6/2019
 package textExcel;
 
-// Update this file with your own code.
-
+//creates spreadsheet
 public class Spreadsheet implements Grid
 {
 	private int rows;
@@ -22,28 +21,39 @@ public class Spreadsheet implements Grid
 		}
 	}
 	@Override
+	
+	//returns a grid with whatever user entered
 	public String processCommand(String command)
 	{
 		EmptyCell cello;
 		int numCol = 0;
 		int numRow = 0;
+		
+		//if user wants to enter value
 		if(command.indexOf(" = ") != -1){
 			String[] arr = command.split(" = ", 2);
 			SpreadsheetLocation userInput = new SpreadsheetLocation(arr[0]);
 			Cell cell;
+			
+			//Makes instance of different cells depending on what the user enters.
 			if(arr[1].indexOf("\"") != -1) {
 				cell = new TextCell(arr[1].substring(1, arr[1].length() - 1));
 			}else if(arr[1].indexOf("%") != -1) {
 				cell = new PercentCell(arr[1]);
+			}else if(arr[1].indexOf("(") != -1){
+				cell = new FormulaCell(arr[1]);
 			}else {
 				cell = new ValueCell(arr[1]);
 			}
 			sheet[userInput.getRow()][userInput.getCol()] = cell;
 			return getGridText();
 		}
+		//user inspection
 		else if(command.length() <=3) {
 			SpreadsheetLocation loc = new SpreadsheetLocation(command);
 			return(getCell(loc).fullCellText());
+			
+			//clear specific cell
 		}else if(command.toUpperCase().equals("CLEAR")) {
 			for(int i = 0; i < getRows(); i++) {
 				for(int j = 0; j < getCols(); j++) {
@@ -52,6 +62,8 @@ public class Spreadsheet implements Grid
 				}
 			}
 			return getGridText();
+			
+			//clear whole spreadsheet
 		}else if(command.toUpperCase().indexOf("CLEAR ") != -1) {
 			String[] arr = command.split(" ", 2);
 			cello = new EmptyCell();
